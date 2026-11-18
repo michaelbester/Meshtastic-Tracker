@@ -344,12 +344,107 @@ class MainWindow(QObject):
                     13
                 );
 
-                L.tileLayer(
+                // ---------------------------------------------------
+                // Base maps (choose one) and optional overlays.
+                // maxNativeZoom lets you keep zooming in past the
+                // provider's last real tile level (tiles are scaled up).
+                // ---------------------------------------------------
+                var esriAttr = 'Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics, USGS, and the GIS User Community';
+
+                var baseOSM = L.tileLayer(
                     'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                     {
                         attribution: '© OpenStreetMap contributors',
                         maxZoom: 19
                     }
+                );
+
+                var baseSatellite = L.tileLayer(
+                    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+                    {
+                        attribution: esriAttr,
+                        maxNativeZoom: 19,
+                        maxZoom: 19
+                    }
+                );
+
+                var baseTopo = L.tileLayer(
+                    'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+                    {
+                        attribution: '© OpenStreetMap contributors, SRTM | © OpenTopoMap (CC-BY-SA)',
+                        subdomains: 'abc',
+                        maxNativeZoom: 17,
+                        maxZoom: 19
+                    }
+                );
+
+                var baseUSGS = L.tileLayer(
+                    'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
+                    {
+                        attribution: 'Tiles courtesy of the U.S. Geological Survey',
+                        maxNativeZoom: 16,
+                        maxZoom: 19
+                    }
+                );
+
+                var baseCycl = L.tileLayer(
+                    'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png',
+                    {
+                        attribution: '© OpenStreetMap contributors | CyclOSM',
+                        subdomains: 'abc',
+                        maxNativeZoom: 20,
+                        maxZoom: 19
+                    }
+                );
+
+                var baseEsriTopo = L.tileLayer(
+                    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+                    {
+                        attribution: esriAttr,
+                        maxNativeZoom: 19,
+                        maxZoom: 19
+                    }
+                );
+
+                // Overlays
+                var overlayHiking = L.tileLayer(
+                    'https://tile.waymarkedtrails.org/hiking/{z}/{x}/{y}.png',
+                    {
+                        attribution: '© waymarkedtrails.org, OpenStreetMap contributors',
+                        maxNativeZoom: 18,
+                        maxZoom: 19,
+                        opacity: 0.85
+                    }
+                );
+
+                // Roads + place names, handy on top of satellite imagery.
+                var overlayRoads = L.layerGroup([
+                    L.tileLayer(
+                        'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}',
+                        { maxNativeZoom: 19, maxZoom: 19 }
+                    ),
+                    L.tileLayer(
+                        'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+                        { maxNativeZoom: 19, maxZoom: 19 }
+                    )
+                ]);
+
+                baseOSM.addTo(map);
+
+                L.control.layers(
+                    {
+                        'Street (OpenStreetMap)': baseOSM,
+                        'Satellite (Esri)': baseSatellite,
+                        'Topo / Trails (OpenTopoMap)': baseTopo,
+                        'USGS Topo (US)': baseUSGS,
+                        'Cycle / Trails (CyclOSM)': baseCycl,
+                        'Esri World Topo': baseEsriTopo
+                    },
+                    {
+                        'Hiking trails overlay': overlayHiking,
+                        'Roads & place names': overlayRoads
+                    },
+                    { position: 'topright', collapsed: true }
                 ).addTo(map);
 
                 var markers = {};
