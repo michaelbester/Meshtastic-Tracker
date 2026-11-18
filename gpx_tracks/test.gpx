@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:mt="http://meshtastic-tracker.local/gpx/1" version="1.1" creator="Meshtastic Tracker">
+  <metadata>
+    <name>Meshtastic Tracker export</name>
+    <time>2026-11-16T22:39:23Z</time>
+  </metadata>
+  <trk>
+    <name>Mike</name>
+    <desc>Meshtastic node !6984d240</desc>
+    <trkseg>
+      <trkpt lat="34.9949118" lon="-82.7637135">
+        <time>2026-11-16T22:37:46Z</time>
+        <extensions>
+          <mt:fix>1</mt:fix>
+          <mt:rssi>-36</mt:rssi>
+        </extensions>
+      </trkpt>
+      <trkpt lat="34.9951220" lon="-82.7632940">
+        <time>2026-11-16T22:37:49Z</time>
+      </trkpt>
+      <trkpt lat="34.9950460" lon="-82.7630270">
+        <time>2026-11-16T22:37:53Z</time>
+      </trkpt>
+      <trkpt lat="34.9949780" lon="-82.7627710">
+        <time>2026-11-16T22:37:56Z</time>
+      </trkpt>
+      <trkpt lat="34.9949220" lon="-82.7625560">
+        <time>2026-11-16T22:37:59Z</time>
+      </trkpt>
+      <trkpt lat="34.9946910" lon="-82.7626120">
+        <time>2026-11-16T22:38:03Z</time>
+      </trkpt>
+      <trkpt lat="34.9944070" lon="-82.7626920">
+        <time>2026-11-16T22:38:07Z</time>
+      </trkpt>
+      <trkpt lat="34.9942470" lon="-82.7627520">
+        <time>2026-11-16T22:38:10Z</time>
+      </trkpt>
+      <trkpt lat="34.9943430" lon="-82.7631100">
+        <time>2026-11-16T22:38:15Z</time>
+      </trkpt>
+      <trkpt lat="34.9946030" lon="-82.7640280">
+        <time>2026-11-16T22:38:27Z</time>
+      </trkpt>
+      <trkpt lat="34.9946130" lon="-82.7640640">
+        <time>2026-11-16T22:38:27Z</time>
+        <extensions>
+          <mt:fix>1</mt:fix>
+          <mt:rssi>-13</mt:rssi>
+        </extensions>
+      </trkpt>
+      <trkpt lat="34.9947681" lon="-82.7639443">
+        <time>2026-11-16T22:39:17Z</time>
+        <extensions>
+          <mt:fix>1</mt:fix>
+          <mt:rssi>-21</mt:rssi>
+        </extensions>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
